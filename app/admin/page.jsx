@@ -7,21 +7,22 @@ export default function AdminPage(){
 
 
     const[nome,setNome] = useState("")
-    const[valor,setVslor] = useState("")
+    const [plano,setPlano] = useState("")
+    const[valor,setValor] = useState("")
 
 
 
     async function cadastrarUsuario() {
         
         try {
-            const response = await fetch("http://localhos:3001/planos", {
+            const response = await fetch("http://localhos:3001/Planos", {
                 method:"POST", 
                 headers:{
                     "Content-Type":"application/json"
                 },
                 body:JSON.stringify({
-                   id,
                    nome,
+                   plano,
                    valor
                 })
             })
@@ -48,6 +49,16 @@ export default function AdminPage(){
                         value={nome}
                         onChange={(e)=> setNome(e.target.value)}
                         placeholder="Digite seu nome"
+                        className="w-full rounded-2x1 border  border-gray-200 bg-white px-4 py-3.5 text-sm text-gray-900 p-3"
+                        />
+                    </div>
+
+                    <div>
+                        <label>Plano</label>
+                        <input type="text"
+                        value={plano}
+                        onChange={(e)=> setPlano(e.target.value)}
+                        placeholder="Digite o plano"
                         className="w-full rounded-2x1 border  border-gray-200 bg-white px-4 py-3.5 text-sm text-gray-900 p-3"
                         />
                     </div>
